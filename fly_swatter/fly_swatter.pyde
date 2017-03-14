@@ -99,7 +99,7 @@ def updateFlyPosition():
 
 def randomizeFlySpeed():
     
-  global fly_ypos, fly_xspeed, fly_yspeed, randomSpeed
+  global fly_xspeed, fly_yspeed, randomSpeed
 
   # Add a random direction and speed
   newfly_xspeed = fly_xspeed + random(-randomSpeed, randomSpeed)
