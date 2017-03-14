@@ -22,7 +22,6 @@ def setup():
   global fly_xpos, fly_ypos, winImage, fly, maskImage, swatterNeutral, swatterSmacked, kitchen
   
   size(960, 640)
-  frameRate(30)
   
   # Fly starts in the middle of the screen
   fly_xpos = width/2
@@ -60,8 +59,6 @@ def draw():
     image(swatterNeutral, mouseX, mouseY)
     
     updateFlyPosition()
-    
-
 
 def mousePressed():
   global fly_xpos, fly_ypos, fly_length, gameWon, swatterNeutral, swatterSmacked, winImage
@@ -80,7 +77,7 @@ def mousePressed():
     
 def updateFlyPosition():
 
-  global fly_length, fly_xpos, fly_ypos, fly_xspeed, fly_yspeed, fly_xdirection, fly_ydirection
+  global fly_xpos, fly_ypos, fly_xspeed, fly_yspeed, fly_xdirection, fly_ydirection
 
   randomizeFlySpeed()
   
@@ -88,14 +85,7 @@ def updateFlyPosition():
   fly_xpos += fly_xspeed * fly_xdirection
   fly_ypos += fly_yspeed * fly_ydirection
 
-  # If fly hits the window boundary, move it back towards the middle
-  if (fly_xpos <= 0 or fly_xpos >= width-fly_length):
-    fly_xdirection *= -1;
-    fly_xpos += fly_xspeed * fly_xdirection
-  
-  if (fly_ypos <= 0 or fly_ypos >= height-fly_length):
-    fly_ydirection *= -1;
-    fly_ypos += fly_yspeed * fly_ydirection
+  checkBoundary()
 
 def randomizeFlySpeed():
     
@@ -108,3 +98,16 @@ def randomizeFlySpeed():
   # Prevent the fly from going too fast (At most 3 times randomSpeed)
   if (abs(newfly_xspeed) <= 3*randomSpeed): fly_xspeed = newfly_xspeed
   if (abs(newfly_yspeed) <= 3*randomSpeed): fly_yspeed = newfly_yspeed
+  
+def checkBoundary():
+
+  global fly_length, fly_xpos, fly_ypos, fly_xspeed, fly_yspeed, fly_xdirection, fly_ydirection
+
+  # If fly hits the window boundary, move it back towards the middle
+  if (fly_xpos <= 0 or fly_xpos >= width-fly_length):
+    fly_xdirection *= -1;
+    fly_xpos += fly_xspeed * fly_xdirection
+  
+  if (fly_ypos <= 0 or fly_ypos >= height-fly_length):
+    fly_ydirection *= -1;
+    fly_ypos += fly_yspeed * fly_ydirection
