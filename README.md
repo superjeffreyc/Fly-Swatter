@@ -1,6 +1,5 @@
 # Fly-Swatter
-A demo on using MousePressed in Processing (Python)
-
+A fly swatter simulator created using Processing (Python)
 ## How to run
 - Download Processing at https://processing.org/
 - Run processing.exe
