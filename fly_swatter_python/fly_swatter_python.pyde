@@ -1,14 +1,14 @@
-randomSpeed = 10;
+randomSpeed = 10
 
-fly_length = 100      
+fly_length = 100
 fly_xpos = 0
 fly_ypos = 0
-fly_xspeed = 1; 
-fly_yspeed = 1;  
-fly_xdirection = 1;  # 1 = Right, -1 = Left
-fly_ydirection = 1;  # 1 = Down,  -1 = Up
+fly_xspeed = 1
+fly_yspeed = 1 
+fly_xdirection = 1  # 1 = Right, -1 = Left
+fly_ydirection = 1  # 1 = Down,  -1 = Up
 
-gameWon = False;
+gameWon = False
 
 ###### Image variables ######
 winImage = None
@@ -52,7 +52,7 @@ def draw():
   global fly_xpos, fly_ypos, gameWon, fly, swatterNeutral, kitchen
   
   if not gameWon:
-    background(kitchen);
+    background(kitchen)
     
     # Draw the fly and swatter
     image(fly, fly_xpos, fly_ypos)
@@ -105,9 +105,9 @@ def checkBoundary():
 
   # If fly hits the window boundary, move it back towards the middle
   if (fly_xpos <= 0 or fly_xpos >= width-fly_length):
-    fly_xdirection *= -1;
+    fly_xdirection *= -1
     fly_xpos += fly_xspeed * fly_xdirection
   
   if (fly_ypos <= 0 or fly_ypos >= height-fly_length):
-    fly_ydirection *= -1;
+    fly_ydirection *= -1
     fly_ypos += fly_yspeed * fly_ydirection
