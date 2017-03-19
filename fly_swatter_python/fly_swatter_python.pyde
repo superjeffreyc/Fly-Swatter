@@ -1,3 +1,5 @@
+# Python implementation of a fly swatter simulator using Processing
+
 randomSpeed = 10
 
 fly_length = 100
