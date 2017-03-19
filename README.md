@@ -1,14 +1,14 @@
 # Fly-Swatter
 A fly swatter simulator created using Processing (Python)
 
-## How to run using Processing IDE
+## How to run using the Processing IDE
 - Download Processing at https://processing.org/
 - Run processing.exe
 - Make sure Python mode is installed
 - Open fly_swatter.pyde
 - Click run and enjoy!
 
-## How to run using command line (Java only)
+## How to run using the command line (Java only)
 
 - Download Processing at https://processing.org/
 
