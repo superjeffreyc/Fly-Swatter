@@ -14,7 +14,7 @@ A fly swatter simulator created using Processing
 
 - Navigate into the folder containing processing-java.exe
 
-- Copy the sketch folder into this directory
+- Copy the fly_swatter_java sketch folder into this directory
 
 Then, run the following command:
 
