@@ -1,5 +1,5 @@
 # Fly-Swatter
-A fly swatter simulator created using Processing (Python)
+A fly swatter simulator created using Processing
 
 ## How to run using the Processing IDE
 - Download Processing at https://processing.org/
