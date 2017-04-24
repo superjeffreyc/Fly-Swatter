@@ -1,6 +1,7 @@
 # Python implementation of a fly swatter simulator using Processing
 
-randomSpeed = 10
+speedChangeLimit = 10
+maxSpeed = 3 * speedChangeLimit
 
 fly_length = 100
 fly_xpos = 0
@@ -86,15 +87,15 @@ def updateFlyPosition():
 
 def randomizeFlySpeed():
     
-  global fly_xspeed, fly_yspeed, randomSpeed
+  global fly_xspeed, fly_yspeed, speedChangeLimit, maxSpeed
 
   # Add a random direction and speed
-  newfly_xspeed = fly_xspeed + random(-randomSpeed, randomSpeed)
-  newfly_yspeed = fly_yspeed + random(-randomSpeed, randomSpeed)
+  newfly_xspeed = fly_xspeed + random(-speedChangeLimit, speedChangeLimit)
+  newfly_yspeed = fly_yspeed + random(-speedChangeLimit, speedChangeLimit)
   
-  # Prevent the fly from going too fast (At most 3 times randomSpeed)
-  if (abs(newfly_xspeed) <= 3*randomSpeed): fly_xspeed = newfly_xspeed
-  if (abs(newfly_yspeed) <= 3*randomSpeed): fly_yspeed = newfly_yspeed
+  # Prevent the fly from going too fast
+  if (abs(newfly_xspeed) <= maxSpeed): fly_xspeed = newfly_xspeed
+  if (abs(newfly_yspeed) <= maxSpeed): fly_yspeed = newfly_yspeed
   
 def checkBoundary():
 

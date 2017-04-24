@@ -2,7 +2,8 @@
  * Java implementation of a fly swatter simulator using Processing
  */
 
-int randomSpeed = 10;
+int speedChangeLimit = 10;
+int maxSpeed = 3 * speedChangeLimit;
 
 int fly_length = 100;  
 int fly_xpos = 0;
@@ -101,12 +102,12 @@ void updateFlyPosition() {
 void randomizeFlySpeed() {
     
   // Add a random direction and speed
-  float newfly_xspeed = fly_xspeed + random(-randomSpeed, randomSpeed);
-  float newfly_yspeed = fly_yspeed + random(-randomSpeed, randomSpeed);
+  float newfly_xspeed = fly_xspeed + random(-speedChangeLimit, speedChangeLimit);
+  float newfly_yspeed = fly_yspeed + random(-speedChangeLimit, speedChangeLimit);
   
-  // Prevent the fly from going too fast (At most 3 times randomSpeed)
-  if (abs(newfly_xspeed) <= 3*randomSpeed) fly_xspeed = newfly_xspeed;
-  if (abs(newfly_yspeed) <= 3*randomSpeed) fly_yspeed = newfly_yspeed;
+  // Prevent the fly from going too fast
+  if (abs(newfly_xspeed) <= maxSpeed) fly_xspeed = newfly_xspeed;
+  if (abs(newfly_yspeed) <= maxSpeed) fly_yspeed = newfly_yspeed;
   
 }
 
