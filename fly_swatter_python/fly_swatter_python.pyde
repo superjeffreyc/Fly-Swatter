@@ -69,9 +69,6 @@ def mousePressed():
       
       # Check if user clicked within boundary of fly image
       if (0 <= (mouseX-fly_xpos) <= fly_length and 0 <= (mouseY-fly_ypos) <= fly_length):
-          fly_xpos = width*2
-          fly_xspeed = 0
-          image(swatterNeutral, fly_xpos, fly_ypos)
           background(winImage)
           gameWon = True
     
