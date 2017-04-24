@@ -7,8 +7,6 @@ fly_xpos = 0
 fly_ypos = 0
 fly_xspeed = 1
 fly_yspeed = 1 
-fly_xdirection = 1  # 1 = Right, -1 = Left
-fly_ydirection = 1  # 1 = Down,  -1 = Up
 
 gameWon = False
 
@@ -79,13 +77,13 @@ def mousePressed():
     
 def updateFlyPosition():
 
-  global fly_xpos, fly_ypos, fly_xspeed, fly_yspeed, fly_xdirection, fly_ydirection
+  global fly_xpos, fly_ypos, fly_xspeed, fly_yspeed
 
   randomizeFlySpeed()
   
   # Update the position of the fly
-  fly_xpos += fly_xspeed * fly_xdirection
-  fly_ypos += fly_yspeed * fly_ydirection
+  fly_xpos += fly_xspeed
+  fly_ypos += fly_yspeed
 
   checkBoundary()
 
@@ -103,13 +101,13 @@ def randomizeFlySpeed():
   
 def checkBoundary():
 
-  global fly_length, fly_xpos, fly_ypos, fly_xspeed, fly_yspeed, fly_xdirection, fly_ydirection
+  global fly_length, fly_xpos, fly_ypos, fly_xspeed, fly_yspeed
 
   # If fly hits the window boundary, move it back towards the middle
   if (fly_xpos <= 0 or fly_xpos >= width-fly_length):
-    fly_xdirection *= -1
-    fly_xpos += fly_xspeed * fly_xdirection
+    fly_xspeed *= -1
+    fly_xpos += fly_xspeed
   
   if (fly_ypos <= 0 or fly_ypos >= height-fly_length):
-    fly_ydirection *= -1
-    fly_ypos += fly_yspeed * fly_ydirection
+    fly_yspeed *= -1
+    fly_ypos += fly_yspeed

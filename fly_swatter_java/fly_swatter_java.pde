@@ -9,8 +9,6 @@ int fly_xpos = 0;
 int fly_ypos = 0;
 float fly_xspeed = 1;
 float fly_yspeed = 1;
-int fly_xdirection = 1;  // 1 = Right, -1 = Left
-int fly_ydirection = 1;  // 1 = Down,  -1 = Up
 
 boolean gameWon = false;
 
@@ -95,8 +93,8 @@ void updateFlyPosition() {
   randomizeFlySpeed();
   
   // Update the position of the fly
-  fly_xpos += fly_xspeed * fly_xdirection;
-  fly_ypos += fly_yspeed * fly_ydirection;
+  fly_xpos += fly_xspeed;
+  fly_ypos += fly_yspeed;
 
   checkBoundary();
   
@@ -120,13 +118,13 @@ void checkBoundary() {
 
   // If fly hits the window boundary, move it back towards the middle
   if (fly_xpos <= 0 || fly_xpos >= width-fly_length) {
-    fly_xdirection *= -1;
-    fly_xpos += fly_xspeed * fly_xdirection;
+    fly_xspeed *= -1;
+    fly_xpos += fly_xspeed;
   }
   
   if (fly_ypos <= 0 || fly_ypos >= height-fly_length) {
-    fly_ydirection *= -1;
-    fly_ypos += fly_yspeed * fly_ydirection;
+    fly_yspeed *= -1;
+    fly_ypos += fly_yspeed;
   }
     
 }
